@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>POST 방식 요청</h3>
+	<!-- method='get' : 헤더정보에 들어감 : url 에 다 보임 -->
+	<form action = "addMember" method='post'>
+		UserName : <input type="text" name="user_name"><br>
+		PassWord : <input type="password" name="user_pwd"><br>
+		<!-- select 태그에서 option 의 value 값이 전송됨 -->
+		Role : <select name="role">
+			<option value='' selected>--선택--</option>
+			<option value='0'>일반사용자</option>
+			<option value='1'>관리자</option>
+		</select><br>
+		<input type="submit" value="send"><br>
+	</form>
+	
+	
+	<script>
+		let form = document.querySelector("form");
+		form.addEventListener("submit", function(e) {
+			e.preventDefault();
+			let name = document.querySelector("input[name='user_name']");
+			let pwd = document.querySelector("input[name='user_pwd']");
+			let role = document.querySelector("select[name='role']");
+			
+			if (name.value == "" || pwd.value == "" || role.value == "") {
+				alert("입력필요");
+				return;
+			}
+			this.submit();
+			
+			
+		})
+	
+	</script>
+
+
+</body>
+</html>

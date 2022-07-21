@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>helloWorld</display-name>
+  
+  <!-- servlet 실행방법 등록 -->
+  <servlet>
+  	<servlet-name>first</servlet-name>
+  	<!-- 매핑된 url 요청시 해당 클래스 파일 실행 -->
+  	<servlet-class>com.edu.FirstServlet</servlet-class>
+  </servlet>
+  
+  <!-- servlet 매핑 설정 -->
+  <servlet-mapping>
+  	<servlet-name>first</servlet-name>
+  	<!-- 실제 url 을 요청 -->
+  	<url-pattern>/first.do</url-pattern>
+  </servlet-mapping>
+  
+  <!-- servlet 실행방법 등록 -->
+  <servlet>
+  	<servlet-name>addInfo</servlet-name>
+  	<!-- 매핑된 url 요청시 해당 클래스 파일 실행 -->
+  	<servlet-class>com.edu.AddInfoServlet</servlet-class>
+  </servlet>
+  
+  <!-- servlet 매핑 설정 -->
+  <servlet-mapping>
+  	<servlet-name>addInfo</servlet-name>
+  	<!-- url : addInfo/아무거나 와도 addInfo인 서블릿 이름을 요청 -->
+  	<url-pattern>/addInfo/*</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+</web-app>
