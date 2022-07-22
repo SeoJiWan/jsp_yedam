@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 public class EmpDAO extends DAO{
 	
 	// 특정 이름 조회
@@ -69,7 +71,9 @@ public class EmpDAO extends DAO{
 	
 	// member table 삽입 : user_name, user_pwd, role ==> 입력
 	// 입력화면, 서블릿, 쿼리
-	public void insertMember(String name, String pwd, String role) {
+	public int insertMember(String name, String pwd, String role) {
+		int result = 0;
+		
 		try {
 			connect();
 			String sql = "INSERT INTO members VALUES (?, ?, ?)";
@@ -78,7 +82,7 @@ public class EmpDAO extends DAO{
 			ps.setString(2, pwd);
 			ps.setString(3, role);
 			
-			int result = ps.executeUpdate(); // insert, update, delete
+			result = ps.executeUpdate(); // insert, update, delete
 			if (result > 0 ) {
 				System.out.println(result + "행 삽입 성공");
 			}
@@ -90,10 +94,12 @@ public class EmpDAO extends DAO{
 		} finally {
 			disconnect();
 		}
+		return result;
 	}
 	
 	// 변경.
-	public void updateMemeber(String name, String pass, String role) {
+	public int updateMemeber(String name, String pass, String role) {
+		int result = 0;
 		try {
 			connect();
 			
@@ -106,7 +112,7 @@ public class EmpDAO extends DAO{
 			ps.setString(2, role);
 			ps.setString(3, name);
 			
-			int result = ps.executeUpdate();
+			result = ps.executeUpdate();
 			if (result > 0) {
 				System.out.println(result + "행 수정 성공");
 			}
@@ -115,6 +121,7 @@ public class EmpDAO extends DAO{
 		} finally {
 			disconnect();
 		}
+		return result;
 	}
 	
 }

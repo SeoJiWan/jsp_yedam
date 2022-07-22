@@ -23,12 +23,20 @@ public class AddMemberServ extends HttpServlet{
 		EmpDAO d = new EmpDAO();
 		System.out.println(req.getMethod());
 		
+		int result = 0;
 		// get : 수정, post : 입력.
 		if (req.getMethod().toUpperCase().equals("GET")) {
-			d.updateMemeber(name, pwd, role);
+			result = d.updateMemeber(name, pwd, role);
 		}
 		else {
-			d.insertMember(name, pwd, role);
+			result = d.insertMember(name, pwd, role);
+		}
+		
+		if (result > 0) {
+			resp.getWriter().print("Completed.");
+		}
+		else {
+			resp.getWriter().print("Failed.");
 		}
 		
 		
