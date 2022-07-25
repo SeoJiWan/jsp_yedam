@@ -26,7 +26,9 @@ public class EmpSearch extends HttpServlet{
 		req.setAttribute("data", list);
 		
 		// empResult 서블릿으로 req, resp 를 넘김
-		RequestDispatcher rd = req.getRequestDispatcher("/html/empResult");
+		// req.getRequestDispatcher(파일경로) : html, jsp 파일 위치 연결
+		RequestDispatcher rd = req.getRequestDispatcher("/jsp/empResult.jsp");
 		rd.forward(req, resp);
+		
 	}
 }

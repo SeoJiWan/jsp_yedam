@@ -1,11 +1,8 @@
 package com.tst.common;
 
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.naming.spi.DirStateFactory.Result;
 
 public class EmpDAO extends DAO{
 	
@@ -27,6 +24,7 @@ public class EmpDAO extends DAO{
 				emp.setLastName(rs.getString(3));
 				emp.setEmail(rs.getString(4));
 				emp.setSalary(rs.getInt("salary"));
+				emp.setJobId(rs.getString("job_id"));
 				list.add(emp);
 			}
 			
