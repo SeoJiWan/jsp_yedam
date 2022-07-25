@@ -1,4 +1,4 @@
-package com.edu;
+package com.tst.common;
 
 import java.sql.Date;
 

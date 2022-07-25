@@ -8,7 +8,6 @@
   	<!-- 매핑된 url 요청시 해당 클래스 파일 실행 -->
   	<servlet-class>com.edu.FirstServlet</servlet-class>
   </servlet>
-  
   <!-- servlet 매핑 설정 -->
   <servlet-mapping>
   	<servlet-name>first</servlet-name>
@@ -22,14 +21,34 @@
   	<!-- 매핑된 url 요청시 해당 클래스 파일 실행 -->
   	<servlet-class>com.edu.AddInfoServlet</servlet-class>
   </servlet>
-  
   <!-- servlet 매핑 설정 -->
   <servlet-mapping>
   	<servlet-name>addInfo</servlet-name>
   	<!-- url : addInfo/아무거나 와도 addInfo인 서블릿 이름을 요청 -->
   	<url-pattern>/addInfo/*</url-pattern>
   </servlet-mapping>
-  
+
+	<servlet>
+		<servlet-name>initParam</servlet-name>
+		<!-- 클래스 매핑 -->
+		<servlet-class>com.edu.web.InitParamServlet</servlet-class>
+		<!-- 서블릿에 변수를 전달할 때 사용 -->
+		<init-param>
+			<param-name>id</param-name>
+			<param-value>guest</param-value>
+		</init-param>
+		<init-param>
+			<param-name>pwd</param-name>
+			<param-value>1004</param-value>
+		</init-param>
+		<!-- 호출이 있든 없든 객체 생성을 함, 우선순위 지정 가능 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>initParam</servlet-name>
+		<url-pattern>/initParam</url-pattern>
+	</servlet-mapping>
+	  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>

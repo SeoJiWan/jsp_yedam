@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.edu.common.EmpDAO;
+
 @WebServlet("/html/addMember")
 public class AddMemberServ extends HttpServlet{
 	
@@ -38,8 +40,6 @@ public class AddMemberServ extends HttpServlet{
 		else {
 			resp.getWriter().print("Failed.");
 		}
-		
-		
 	}
 
 }

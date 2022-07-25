@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html/member.html</title>
+
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <h3>회원정보</h3>
+  <form action="queryTest" method="post">
+    <!-- name 속성이 중요 -> 파라미터로 넘어감 -> 서블릿에서 req.getParmeter("id") 로 받을 수 있음-->
+    ID : <input type="text" name="id" value="user9"><br>
+    PASSWORD : <input type="password" name="pwd" value="9999"><br>
+    이름 : <input type="text" name="name" value="홍길동"><br>
+    취미 : <input type="checkbox" name="hobby" value="climbing">등산
+    <input type="checkbox" name="hobby" value="swimming">수영
+    <input type="checkbox" name="hobby" value="basketball" checked>농구
+    <input type="checkbox" name="hobby" value="soccer" checked>축구<br>
+    성별 : <input type="radio" name="gender" value="femail" checked>남자
+    <input type="radio" name="gender" value="mail">여자<br>
+    종교 : <select name="religion">
+      <option value="">--선택-</option>
+      <option value="chris">기독교</option>
+      <option value="buddhism">불교</option>
+      <option value="catholicism">천주교</option>
+      <option value="nothing" selected>무교</option>
+    </select><br>
+    자기소개 : <br>
+    <textarea name="introduction" cols="30" rows="10"></textarea><br>
+    <input type="submit" value="전송">
+    <input type="reset" value="취소">
+  </form>
+
+
+  <script>
+    // console.log(decodeURI('%ED%99%8D%EA%B8%B8%EB%8F%99'));
+    // console.log(encodeURI('홍길동'));
+
+    String.prototype.getParameter = function (param) {
+      let value = [];
+      let findParamIdx;
+      let querystring = this;
+
+      while (querystring.indexOf(param) >= 0) {
+        findParamIdx = querystring.indexOf(param);
+        value.push(querystring.slice(findParamIdx + param.length + 1, querystring.indexOf('&', findParamIdx)));
+        querystring = querystring.slice(findParamIdx + param.length);
+      }
+      return value;
+    };
+
+    let str = new String("id=user9&pwd=9999&name=홍길동&hobby=basketball&hobby=soccer&gender=femail&religion=nothing&introduction=");
+    console.log(str.getParameter('hobby'));
+
+
+  </script>
+
+</body>
+
+</html>

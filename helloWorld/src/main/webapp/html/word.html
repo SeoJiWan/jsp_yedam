@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>word.html</title>
+  <style>
+    #show {
+      width: 350px;
+      height: 370px;
+      background-color: yellow;
+    }
+
+    #show>span {
+      display: inline-block;
+      width: 100px;
+      height: 25px;
+      background-color: aqua;
+      border: 1px solid aquamarine;
+      padding: 2px;
+      margin: 2px;
+    }
+
+    #show>span:nth-child(3n+1) {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <input type="text" name="userInput" id="userInput">
+  <div id="show"></div>
+
+  <script>
+    let words =
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ipsum possimus nam recusandae expedita! Dicta dignissimos neque nemo deserunt praesentium, debitis expedita laboriosam deleniti cum, recusandae natus repellendus placeat quaerat?';
+    let wordList = words.split(' ');
+
+
+    let show = document.getElementById('show');
+    for (let word of wordList) {
+      let span = document.createElement('span');
+      span.innerText = word; //<span>Lorem</span>
+      show.append(span);
+    }
+
+
+    document.querySelector('#userInput').addEventListener('keypress', function (e) {
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        listener();
+      }
+    })
+
+    function listener() {
+      let input = document.querySelector('#userInput').value;
+      console.log(input)
+      let idx = wordList.indexOf(input);
+      document.querySelector(`#show>span:nth-child(${idx + 1})`).remove();
+
+    }
+    // document.querySelector(`#show>span:nth-child(1)`).remove();
+
+
+
+
+  </script>
+
+</body>
+
+</html>

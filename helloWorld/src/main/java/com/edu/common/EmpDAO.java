@@ -1,4 +1,4 @@
-package com.edu;
+package com.edu.common;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
