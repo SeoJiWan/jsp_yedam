@@ -19,6 +19,7 @@ public class SessionTestServlet extends HttpServlet{
 		String param = req.getParameter("p");
 		String msg = null;
 		
+		
 		// 생성
 		if (param.equals("create")) {
 			// 생성된 세션값이 있으면 session id 를 반환

@@ -70,4 +70,11 @@ public class Board {
 		this.visitCnt = visitCnt;
 	}
 
+	@Override
+	public String toString() {
+		return "Board [boardId=" + boardId + ", title=" + title + ", content=" + content + ", writer=" + writer
+				+ ", createDate=" + createDate + ", visitCnt=" + visitCnt + "]";
+	}
+	
+
 }
