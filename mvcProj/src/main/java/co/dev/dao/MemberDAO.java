@@ -37,6 +37,55 @@ public class MemberDAO extends DAO {
 		}
 	}
 
+	// 수정
+	public void update(Member member) {
+		String sql = "update member set name = ?, password = ?, mail = ? " + "where id = ?";
+		connect();
+
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, member.getName());
+			ps.setString(2, member.getPwd());
+			ps.setString(3, member.getMail());
+			ps.setString(4, member.getId());
+
+			int result = ps.executeUpdate();
+
+			if (result > 0) {
+				System.out.println(result + " 건 수정.");
+			} else {
+				System.out.println("수정 실패.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+
+	// 삭제
+	public void delete(String id) {
+		String sql = "delete from member where id = ?";
+		connect();
+
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, id);
+
+			int result = ps.executeUpdate();
+
+			if (result > 0) {
+				System.out.println(result + " 건 삭제.");
+			} else {
+				System.out.println("삭제 실패.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+	}
+
 	// 단건조회
 	public Member selectOne(String id) {
 		Member member = null;

@@ -39,4 +39,16 @@ public class MemberService {
 	public List<Member> findAllMembers() {
 		return memberDAO.selectAll();
 	}
+	
+	// 회원 정보 수정
+	public void modifyMember(Member member) {
+		memberDAO.update(member);
+	}
+	
+	// 회원 정보 삭제
+	public void deleteMember(String id) {
+		memberDAO.delete(id);
+	}
+	
+	
 }

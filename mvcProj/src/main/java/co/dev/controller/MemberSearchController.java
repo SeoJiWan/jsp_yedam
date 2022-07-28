@@ -25,9 +25,7 @@ public class MemberSearchController implements Controller {
 		else {
 			req.setAttribute("findMember", member);
 			Utils.forward(req, resp, "memberResult/memberSearchResult.jsp");
+			
 		}
-		
-		
 	}
-
 }

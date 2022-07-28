@@ -23,5 +23,17 @@
 			<td>${findMember.mail }</td>
 		</tr>
 	</table>
+	<form action="${pageContext.request.contextPath }/memberView/memberUpdate.jsp" method="post">
+		<input type="hidden" name="id" value="${findMember.id }">
+		<input type="hidden" name="pwd" value="${findMember.pwd }">
+		<input type="hidden" name="name" value="${findMember.name }">
+		<input type="hidden" name="mail" value="${findMember.mail }">
+		<input type="submit" value="수정">
+	</form>
+	<form action="${pageContext.request.contextPath }/memberView/memberDelete.jsp" method="post">
+		<input type="hidden" name="id" value="${findMember.id }">
+		<input type="submit" value="삭제">
+	</form>
+	
 </body>
 </html>

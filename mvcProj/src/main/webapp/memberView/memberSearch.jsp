@@ -10,7 +10,7 @@
 	
 	<h3>회원검색</h3>
 	${error }
-	<form action="../../mvcProj/memberSearch.do" method="get">
+	<form action="${pageContext.request.contextPath }/memberSearch.do" method="get">
 		아이디 : <input type="text" name="id"><br>
 		<input type="submit" value="검색">
 	</form>
