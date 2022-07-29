@@ -19,7 +19,7 @@ public class MemberJsonController implements Controller {
 		
 		List<Member> members = memberService.findAllMembers();
 		
-		resp.setContentType("text/html;utf-8");
+		resp.setContentType("text/json;utf-8");
 		
 //		String json = "[{\"name\": \"hong\", \"age\": 14},{\"name\": \"kim\", \"age\": 18}]";
 		

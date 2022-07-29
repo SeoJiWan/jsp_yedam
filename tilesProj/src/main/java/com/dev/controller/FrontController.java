@@ -1,16 +1,16 @@
-package co.dev.controller;
+package com.dev.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-// .
-public class FrontController extends HttpServlet {
+public class FrontController extends HttpServlet{
 
 	/*
 	 * Field
@@ -28,13 +28,12 @@ public class FrontController extends HttpServlet {
 		enc = config.getInitParameter("charset");
 		
 		mappings = new HashMap<>();
-		mappings.put("/memberInsert.do", new MemberInsertController());
-		mappings.put("/memberList.do", new MemberListController());
-		mappings.put("/memberSearch.do", new MemberSearchController());
-		mappings.put("/memberUpdate.do", new MemberUpdateController());
-		mappings.put("/memberDelete.do", new MemberDeleteController());
-		mappings.put("/memberJson.do", new MemberJsonController());
-		mappings.put("/memberInsertUseAjax.do", new memberInsertUseAjaxController());
+		mappings.put("/main.do", new MainController());
+		mappings.put("/second.do", new SecondController());
+		mappings.put("/chart.do", new ChartController());
+		mappings.put("/table.do", new TableController());
+		mappings.put("/register.do", new RegisterController());
+		mappings.put("/login.do", new LoginController());
 		
 	}
 
@@ -58,4 +57,5 @@ public class FrontController extends HttpServlet {
 
 
 	}
+
 }
